@@ -20,6 +20,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'gh-pages'
+          jekyll_build_options: '-b https://better-personal-website.github.io/personal-website'
         env:
           JEKYLL_DEBUG: true
           PAGES_REPO_NWO: 'better-personal-website/personal-website'
