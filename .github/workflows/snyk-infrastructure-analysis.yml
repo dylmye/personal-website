@@ -22,11 +22,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
-      - name: Install Ruby, Bundler, Gemfile
+      - name: Install Ruby, Bundler
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
           bundler-cache: false
+          
+      - run: bundle install
         
       - name: Run Snyk to check for Ruby Gem vulnerabilities
         uses: snyk/actions/ruby@master 
