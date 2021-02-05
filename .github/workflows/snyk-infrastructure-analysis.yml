@@ -1,0 +1,43 @@
+# A sample workflow which checks out your Infrastructure as Code Configuration files,
+# such as Kubernetes, Helm & Terraform and scans them for any security issues.
+# The results are then uploaded to GitHub Security Code Scanning
+#
+# For more examples, including how to limit scans to only high-severity issues
+# and fail PR checks, see https://github.com/snyk/actions/
+
+name: Snyk Ruby Scanning
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '36 14 * * 3'
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - uses: snyk/actions/ruby@master 
+        name: Run Snyk to check for Ruby Gem vulnerabilities
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          json: true
+        
+      - uses: garethr/snyk-to-sarif@master
+      
+      - uses: actions/upload-artifact@v2
+        with:
+          name: SARIF
+          path: snyk.sarif
+        
+      - uses: github/codeql-action/upload-sarif@v1
+        name: Upload result to GitHub Code Scanning
+        with:
+          sarif_file: snyk.sarif
