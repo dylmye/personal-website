@@ -21,11 +21,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      - run: bundle install
         
-      - uses: snyk/actions/ruby@master 
-        name: Run Snyk to check for Ruby Gem vulnerabilities
+      - name: Install Ruby, Bundler, Gemfile
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: false
+        
+      - name: Run Snyk to check for Ruby Gem vulnerabilities
+        uses: snyk/actions/ruby@master 
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -39,7 +43,7 @@ jobs:
           name: SARIF
           path: snyk.sarif
         
-      - uses: github/codeql-action/upload-sarif@v1
-        name: Upload result to GitHub Code Scanning
+      - name: Upload result to GitHub Code Scanning 
+        uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: snyk.sarif
