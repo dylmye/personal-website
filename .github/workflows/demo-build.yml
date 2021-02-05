@@ -22,3 +22,4 @@ jobs:
           target_branch: 'gh-pages'
         env:
           JEKYLL_DEBUG: true
+          PAGES_REPO_NWO: 'better-personal-website/personal-website'
