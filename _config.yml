@@ -1,6 +1,8 @@
 layout: sidebar
 style: light
 
+# baseurl: repo-name # set this variable to your repo name if you're not hosting in your username.github.io repo
+
 plugins:
   - jekyll-octicons
   - jekyll-github-metadata

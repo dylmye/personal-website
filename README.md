@@ -1,5 +1,9 @@
-# Get started building your personal website
+# (Better) Personal Website - Jekyll blog + portfolio template
 
+**Demo here >>> https://better-personal-website.github.io/personal-website/**
+![Screenshot of demo website](https://user-images.githubusercontent.com/7024578/107131423-06b4dc80-68ce-11eb-8718-0728e353461c.png)
+
+## Get started building your personal website
 ### Showcase your software development skills
 
 This repository gives you the code you'll need to kickstart a personal website that showcases your work as a software developer. And when you manage the code in a GitHub repository, it will automatically render a webpage with the owner's profile information, including a photo, bio, and repositories.
