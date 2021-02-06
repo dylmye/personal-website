@@ -12,6 +12,16 @@ Your personal website is waiting to be personalized, though. It includes space t
 
 It's all possible using the combination of [Jekyll](https://jekyllrb.com/docs/) (for building your website), [GitHub Pages](https://pages.github.com/) (for hosting your website), and [GitHub's API](https://developer.github.com/v3/) (for automatically populating your website with content).
 
+## Features
+
+* Showcase your work through a pick of your GitHub repos, complete with metadata
+* Let people know if you're available to hire, as well as your key skills and interests
+* Dark mode option!
+* Write blog posts and extra pages with ease, using Markdown
+* Link to all of your social media accounts
+
+... and more! The theme is fully customizable, and many more features and fixes are planned.
+
 ## Get Started
 
 [Check out the wiki](https://github.com/better-personal-website/personal-website/wiki) for installation, publication and customization instructions.
